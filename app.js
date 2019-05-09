@@ -1,3 +1,6 @@
+// Initaliaze github    
+const github = new Github;
+
 // Search input
 const searchUser = document.getElementById('searchUser');
 
@@ -9,7 +12,21 @@ searchUser.addEventListener('keyup', (e) => {
 
     // We want to make sure it is not blank
     if(userText !== '') {
-        // if not empty we want to make an HTTP call to Github, this is going to be done true our github.js file
-        console.log(userText);
+    // if not empty we want to make an HTTP call to Github, this is going to be done true our github.js file
+    //Make HTTP call
+    github.getUser(userText)
+        //this will return a promise so .then
+        .then(data => {
+            // If a user doesnt excist we get the profile: message: Not found, so we want to use that here:
+            if(data.profile.message === 'Not Found') {
+                // Show alert (this is going to be written in the ui.js)
+
+            } else {
+                // Show profile (this will also be written in the ui.js)
+            }
+        })
+    } else {
+        // if the search bar is empty we want the profiles to disappear (will happen true the ui.js as well)
+       // Clear Profile 
     }
 });

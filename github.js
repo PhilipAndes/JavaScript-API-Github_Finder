@@ -1,6 +1,6 @@
 // We use ES6 classes for this project
 
-class GitHub {
+class Github {
     constructor() {
         this.client_id = 'db6991f5105705e5215b';
         this.client_secret = '36d3299ff09308390ecc93413acaf8ec5224ea82';
