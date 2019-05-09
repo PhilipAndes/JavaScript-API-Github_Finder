@@ -3,6 +3,7 @@ class UI {
         this.profile = document.getElementById('profile');
     }
 
+    // Display profile in UI
     showProfile(user) {
         this.profile.innerHTML = `
             <div class="card card-body mb-3">
@@ -31,4 +32,44 @@ class UI {
             <div id="repos"></div>
         `;
     }
+
+    // Show alert message
+    showAlert(message, className) {
+        // Clear any remaining alerts:
+        this.clearAlert();
+        // create div
+        const div = document.createElement('div');
+        // Add classes
+        div.className = className;
+        // Add text
+        div.appendChild(document.createTextNode(message));
+        // So to insert it we first need to get the parent, (we want to get the second the container from the ui so thats why we added the class searchContainer)
+        const container = document.querySelector('.searchContainer');
+        // Get search box
+        const search = document.querySelector('.search');
+        // Insert the alert, (so we want to insert the div, before search)
+        container.insertBefore(div, search);
+
+        // We want the alert to go away after 3 seconds
+        setTimeout(() => {
+            this.clearAlert();
+        }, 3000);
+    }
+
+    // Clear alert message, so it only shows one alert every time
+    clearAlert() {
+        const currentAlert = document.querySelector('.alert');
+        //Then we want to check if there is an alert else we get an error
+        if(currentAlert) {
+            currentAlert.remove();
+        }
+
+    }
+
+
+    //Clear profile when nothing is typed in
+    clearProfile() {
+        this.profile.innerHTML = '';
+    }
+
 }

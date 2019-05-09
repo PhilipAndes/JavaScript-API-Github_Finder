@@ -23,7 +23,8 @@ searchUser.addEventListener('keyup', (e) => {
             // If a user doesnt excist we get the profile: message: Not found, so we want to use that here:
             if(data.profile.message === 'Not Found') {
                 // Show alert (this is going to be written in the ui.js)
-
+                // This will take in a message, and a class alert-danger
+                ui.showAlert('User not found', 'alert alert-danger');
             } else {
                 // Show profile (this will also be written in the ui.js)
                 ui.showProfile(data.profile);
@@ -32,5 +33,6 @@ searchUser.addEventListener('keyup', (e) => {
     } else {
         // if the search bar is empty we want the profiles to disappear (will happen true the ui.js as well)
        // Clear Profile 
+       ui.clearProfile();
     }
 });
