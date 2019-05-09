@@ -2,8 +2,8 @@
 
 class Github {
     constructor() {
-        this.client_id = 'db6991f5105705e5215b';
-        this.client_secret = '36d3299ff09308390ecc93413acaf8ec5224ea82';
+        this.client_id = myClientId;
+        this.client_secret = myClientSecret;
         this.repos_count = 5; // The number of repositories you want to show
         this.repos_sort = 'created: asc'; // repos listed by newest first
     }
