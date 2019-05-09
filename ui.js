@@ -33,6 +33,34 @@ class UI {
         `;
     }
 
+    // Show user repos, this is gonna take in repos which is an array
+    showRepos(repos) {
+        //as this is an array we are going to initialize an output variable
+        let output = '';
+
+        // Loop true the repos with a forEach
+        repos.forEach(function(repo) {
+            // append to the output with +=, for each repository we want to put it into a card, we use grid so class=row, then we are going to have two 6 columns divs, the first one is going to have the repo name and a link, the seconds one is going to have some badges like above
+            output += `
+                <div class="card card-body mb-2">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a href="${repo.html_url}" target="_blank">${repo.name}</a>
+                        </div>
+                        <div class="col-md-6">
+                            <span class="badge badge-primary">Stars: ${repo.stargazers_count}</span>
+                            <span class="badge badge-secondary">Watchers: ${repo.watchers_count}</span>
+                            <span class="badge badge-success">Forks: ${repo.forks_count}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+        // So after the forEach loop that ends right here, we want to go under it and we want to output the repositories
+        document.getElementById('repos').innerHTML = output;
+
+    }
+
     // Show alert message
     showAlert(message, className) {
         // Clear any remaining alerts:

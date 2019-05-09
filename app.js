@@ -28,6 +28,8 @@ searchUser.addEventListener('keyup', (e) => {
             } else {
                 // Show profile (this will also be written in the ui.js)
                 ui.showProfile(data.profile);
+                // Show repos
+                ui.showRepos(data.repos);
             }
         })
     } else {
