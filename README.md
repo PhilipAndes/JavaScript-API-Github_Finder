@@ -1,6 +1,5 @@
 # JavaScript API Github Finder
 
-Started Coding: December 2018.
 
 A Project where we use the Github API, to fetch profile information and repositories. 
 
